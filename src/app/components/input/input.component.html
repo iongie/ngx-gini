@@ -1,0 +1,59 @@
+<ng-container>
+    <input [type]="type" [name]="name" [id]="name" [placeholder]="placeholder" (change)="onInput($event)"
+        [ngClass]="inputClass" />
+
+    <ng-container *ngIf="hasError.value && hasError.desc">
+        <ng-container *ngIf="hasError.desc.required">
+            <div class="mt-1 flex items-center gap-1 p-4 text-base text-red-800 rounded-lg bg-red-50 motion-preset-expand  "
+                role="alert">
+                <span class="material-icons-round mi-size">info</span>
+                <span class="sr-only">Info</span>
+                <div class="ml-1">
+                    <span class="font-medium">Penting! </span>Data ini wajib diisi
+                </div>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="hasError.desc.email">
+            <div class="mt-1 flex items-center p-4 text-base text-red-800 rounded-lg bg-red-50 motion-preset-expand  "
+                role="alert">
+                <span class="material-icons-round mi-size">info</span>
+                <span class="sr-only">Info</span>
+                <div class="ml-1">
+                    <span class="font-medium">Penting! </span>Masukkan email yang benar (contoh: nama&#64;email.com)
+                </div>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="hasError.desc.minlength">
+            <div class="mt-1 flex items-center p-4 text-base text-red-800 rounded-lg bg-red-50 motion-preset-expand  "
+                role="alert">
+                <span class="material-icons-round mi-size">info</span>
+                <span class="sr-only">Info</span>
+                <div class="ml-1">
+                    <span class="font-medium">Penting! </span>Data kurang dari {{hasError.desc.minlength.requiredLength}}
+                    karakter
+                </div>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="hasError.desc.maxlength">
+            <div class="mt-1 flex items-center p-4 text-base text-red-800 rounded-lg bg-red-50 motion-preset-expand  "
+                role="alert">
+                <span class="material-icons-round mi-size">info</span>
+                <span class="sr-only">Info</span>
+                <div class="ml-1">
+                    <span class="font-medium">Penting! </span>Data lebih dari {{hasError.desc.maxlength.requiredLength}}
+                    karakter
+                </div>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="hasError.desc.pattern">
+            <div class="mt-1 flex items-center p-4 text-base text-red-800 rounded-lg bg-red-50 motion-preset-expand  "
+                role="alert">
+                <span class="material-icons-round mi-size">info</span>
+                <span class="sr-only">Info</span>
+                <div class="ml-1">
+                    <span class="font-medium">Penting! </span>{{messagePatternError}}
+                </div>
+            </div>
+        </ng-container>
+    </ng-container>
+</ng-container>

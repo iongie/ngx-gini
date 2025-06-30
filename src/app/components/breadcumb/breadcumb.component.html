@@ -1,0 +1,20 @@
+<nav class="flex mx-4 mt-8" aria-label="Breadcrumb" >
+    <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
+        <li class="inline-flex items-center">
+            <a routerLink="/akun/dasbor"
+                class="inline-flex items-center gap-1 text-base font-medium text-sky-800 hover:text-amber-800">
+                <span class="material-icons-round">home</span>
+                Beranda
+            </a>
+        </li>
+        <ng-container *ngFor="let breadcumb of breadcumb; let i = index">
+            <li>
+                <div class="flex items-center">
+                    <span class="material-icons-round">chevron_right</span>
+                    <a [routerLink]="getBreadcrumbUrl(i)"
+                        class="ms-1 text-base font-medium text-sky-800 hover:text-amber-800 capitalize">{{breadcumb}}</a>
+                </div>
+            </li>
+        </ng-container>
+    </ol>
+</nav>
